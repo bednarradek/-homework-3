@@ -1,0 +1,28 @@
+parameters:
+    db:
+        dsn: 'pgsql:host=POSTGRES_DB;dbname=db_eshop'
+        user: db_eshop
+        password: test
+
+services:
+    cache.storage: Nette\Caching\Storages\FileStorage('temp/cache')
+    connection: \Nette\Database\Connection(%db.dsn%, %db.user%, %db.password%)
+    structure: \Nette\Database\Structure
+    exploler: \Nette\Database\Explorer
+    routesBuilder: App\Routes\RoutesBuilder
+
+search:
+    repositories:
+        in: src/Orm/Repositories
+    middleware:
+        in: src/Middleware
+    controllers:
+        in: src/Controllers
+    managers:
+        in: src/Managers
+    commands:
+        in: src/Commands
+
+
+
+

@@ -1,0 +1,24 @@
+<?php
+
+$namespaceDefinition
+
+use $useClassName;
+
+class $className extends $baseClassName
+{
+    /**
+     * Migrate Up.
+     */
+    public function up(): void
+    {
+
+    }
+
+    /**
+     * Migrate Down.
+     */
+    public function down(): void
+    {
+
+    }
+}

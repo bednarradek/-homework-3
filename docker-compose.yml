@@ -1,0 +1,27 @@
+version: "3.9"
+
+services:
+  php_apache:
+    container_name: PHP_APACHE
+    build: .
+    volumes:
+      - ./:/var/www/html
+    ports:
+      - "80:80"
+    depends_on:
+      - db
+  db:
+    container_name: POSTGRES_DB
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_USER: db_eshop
+      POSTGRES_PASSWORD: test
+      POSTGRES_DB: db_eshop
+    ports:
+      - "5432:5432"
+    volumes:
+      - db_data:/var/lib/postgresql/data
+
+volumes:
+  db_data:
